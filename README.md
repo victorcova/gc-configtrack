@@ -28,4 +28,14 @@ Exemplos de versões válidas:
 
 ## Estado atual
 
-Versão em desenvolvimento: `0.2.0`.
+Versão em desenvolvimento: `0.3.0`.
+
+## Validação semântica
+
+A aplicação valida versões no formato `vMAJOR.MINOR.PATCH`.
+
+A suíte automatizada pode ser executada com:
+
+```bash
+npm test
+```
