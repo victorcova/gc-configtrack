@@ -4,6 +4,8 @@ import { access, readFile } from "node:fs/promises";
 const REQUIRED_FILES = [
     "dist/index.html",
     "dist/README.md",
+    "dist/CHANGELOG.md",
+    "dist/docs/release-notes-v1.0.0.md",
     "dist/VERSION",
     "dist/assets/css/style.css",
     "dist/assets/js/app.js",
