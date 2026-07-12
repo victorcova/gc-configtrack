@@ -1,0 +1,97 @@
+name: Integração Contínua
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+      - 'ci/**'
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Testes e Construção
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Obter código-fonte
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          package-manager-cache: false
+
+      - name: Exibir versões do ambiente
+        run: |
+          node --version
+          npm --version
+
+      - name: Instalar dependências controladas
+        run: npm ci
+
+      - name: Executar testes automatizados
+        run: npm test
+
+      - name: Construir artefato
+        run: npm run build
+
+      - name: Validar integridade do artefato
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            "dist/index.html"
+            "dist/README.md"
+            "dist/VERSION"
+            "dist/assets/css/style.css"
+            "dist/assets/js/app.js"
+            "dist/build-info.json"
+          )
+
+          for file in "${required_files[@]}"; do
+            test -f "$file"
+            echo "OK: $file"
+          done
+
+          test "$(cat VERSION)" = "$(cat dist/VERSION)"
+
+
+          echo "Conteúdo de build-info.json:"
+          cat dist/build-info.json
+
+      - name: Publicar artefato do build
+        id: upload-artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: configtrack-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Registrar resumo da execução
+        env:
+          ARTIFACT_URL: ${{ steps.upload-artifact.outputs.artifact-url }}
+        run: |
+          {
+            echo "## Resultado da integração contínua"
+            echo ""
+            echo "- Projeto: ConfigTrack"
+            echo "- Versão: $(cat VERSION)"
+            echo "- Commit: ${GITHUB_SHA:0:7}"
+            echo "- Node.js: $(node --version)"
+            echo "- Testes: aprovados"
+            echo "- Build: concluído"
+            echo "- Artefato: [acessar pacote gerado]($ARTIFACT_URL)"
+          } >> "$GITHUB_STEP_SUMMARY"
