@@ -28,7 +28,7 @@ Exemplos de versões válidas:
 
 ## Estado atual
 
-Versão em desenvolvimento: `0.4.0`.
+Versão estável: `1.0.0`.
 
 ## Validação semântica
 
