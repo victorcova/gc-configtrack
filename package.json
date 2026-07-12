@@ -1,0 +1,13 @@
+{
+  "name": "gc-configtrack",
+  "version": "0.3.0",
+  "description": "Projeto acadêmico para aplicação prática de Gerência de Configuração.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": "24.18.0"
+  }
+}
