@@ -56,7 +56,9 @@ async function buildProject() {
     const projectFiles = [
         "index.html",
         "README.md",
+        "CHANGELOG.md",
         "VERSION",
+        "docs",
         "assets"
     ];
 

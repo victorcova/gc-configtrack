@@ -1,6 +1,6 @@
 {
   "name": "gc-configtrack",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Projeto acadêmico para aplicação prática de Gerência de Configuração.",
   "private": true,
   "type": "module",
