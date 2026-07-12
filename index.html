@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="ConfigTrack: aplicação acadêmica para validação e acompanhamento de versões de software."
+    >
+
+    <title>ConfigTrack | Validação de Versão</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container site-header__content">
+            <div>
+                <p class="site-header__eyebrow">
+                    Gerência de Configuração
+                </p>
+
+                <h1 class="site-header__title">
+                    ConfigTrack
+                </h1>
+            </div>
+
+            <span class="environment-badge">
+                Ambiente acadêmico
+            </span>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section class="hero" aria-labelledby="hero-title">
+            <div>
+                <p class="section-label">
+                    Controle e rastreabilidade
+                </p>
+
+                <h2 id="hero-title">
+                    Validação de versões de software
+                </h2>
+
+                <p class="hero__description">
+                    Informe uma versão para verificar se ela segue o padrão
+                    de versionamento semântico adotado pelo projeto.
+                </p>
+            </div>
+        </section>
+
+        <section
+            class="validator-card"
+            aria-labelledby="validator-title"
+        >
+            <div class="card-heading">
+                <div>
+                    <p class="section-label">
+                        Validação
+                    </p>
+
+                    <h2 id="validator-title">
+                        Verificar versão
+                    </h2>
+                </div>
+
+                <span class="status-badge">
+                    Em desenvolvimento
+                </span>
+            </div>
+
+            <form id="version-form" novalidate>
+                <label for="version-input">
+                    Versão do software
+                </label>
+
+                <div class="input-group">
+                    <input
+                        id="version-input"
+                        name="version"
+                        type="text"
+                        placeholder="v1.0.0"
+                        autocomplete="off"
+                        aria-describedby="version-help"
+                        required
+                    >
+
+                    <button type="submit">
+                        Validar versão
+                    </button>
+                </div>
+
+                <small id="version-help">
+                    Utilize o formato vMAJOR.MINOR.PATCH, como v1.0.0.
+                </small>
+
+                <p
+                    id="validation-result"
+                    class="result result--neutral"
+                    role="status"
+                    aria-live="polite"
+                >
+                    Aguardando validação.
+                </p>
+            </form>
+        </section>
+
+        <section
+            class="configuration-card"
+            aria-labelledby="configuration-title"
+        >
+            <div>
+                <p class="section-label">
+                    Item de configuração
+                </p>
+
+                <h2 id="configuration-title">
+                    Informações do projeto
+                </h2>
+            </div>
+
+            <dl class="configuration-list">
+                <div>
+                    <dt>Projeto</dt>
+                    <dd>ConfigTrack</dd>
+                </div>
+
+                <div>
+                    <dt>Versão</dt>
+                    <dd id="project-version">0.1.0</dd>
+                </div>
+
+                <div>
+                    <dt>Branch principal</dt>
+                    <dd>main</dd>
+                </div>
+
+                <div>
+                    <dt>Padrão de versão</dt>
+                    <dd>Versionamento Semântico</dd>
+                </div>
+            </dl>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            Projeto acadêmico de Gerência de Configuração.
+        </div>
+    </footer>
+</body>
+</html>
