@@ -1,0 +1,15 @@
+# Dependências
+node_modules/
+
+# Artefatos de construção
+dist/
+coverage/
+
+# Arquivos de ambiente e logs
+.env
+.env.*
+*.log
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
