@@ -28,4 +28,4 @@ Exemplos de versões válidas:
 
 ## Estado atual
 
-Versão inicial de desenvolvimento: `0.1.0`.
+Versão em desenvolvimento: `0.2.0`.
