@@ -28,7 +28,7 @@ Exemplos de versões válidas:
 
 ## Estado atual
 
-Versão em desenvolvimento: `0.3.0`.
+Versão em desenvolvimento: `0.4.0`.
 
 ## Validação semântica
 
@@ -39,3 +39,17 @@ A suíte automatizada pode ser executada com:
 ```bash
 npm test
 ```
+
+## Integração contínua
+
+O workflow `.github/workflows/ci.yml` executa automaticamente:
+
+1. obtenção do código-fonte;
+2. configuração da versão controlada do Node.js;
+3. instalação reproduzível com `npm ci`;
+4. execução dos testes automatizados;
+5. construção da pasta `dist`;
+6. validação da integridade dos arquivos;
+7. publicação do artefato do build.
+
+O workflow é acionado em pushes e Pull Requests destinados à branch `main`.
