@@ -292,3 +292,20 @@ small {
         width: 100%;
     }
 }
+
+.result--success {
+    color: #145c3d;
+    background: #e5f5ed;
+    border: 1px solid #b8dfcc;
+}
+
+.result--error {
+    color: #9c2f2f;
+    background: #fceaea;
+    border: 1px solid #efc3c3;
+}
+
+input[aria-invalid="true"] {
+    border-color: #b73c3c;
+    box-shadow: 0 0 0 3px rgba(183, 60, 60, 0.12);
+}
